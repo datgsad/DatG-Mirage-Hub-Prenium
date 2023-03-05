@@ -1,0 +1,67 @@
+if game:PlaceID == 2753915549 or placeId == 4442272183 or placeId == 7449423635 then
+    local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+    local Window = OrionLib:MakeWindow({
+        Name = "DatG Hub",
+        HidePremium = false,
+        IntroText = "DatG Hub",
+        SaveConfig = true,
+        ConfigFolder = "DatG-Hub"
+    })
+    
+    _G.MirageHop = true
+    _G.Mirage = true
+    
+    -- Fun
+    
+    spawn(function()
+        pcall(function()
+            while wait() do
+             if _G.Mirage then
+              if game:GetService("Workspace").Map:FindFirstChild("MysticIsland") then
+                function toTargetWait(a)local b=(a.p-game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart").Position).Magnitude;tweenrach=game:GetService('TweenService'):Create(game.Players.LocalPlayer.Character:WaitForChild("HumanoidRootPart"),TweenInfo.new(b/250,Enum.EasingStyle.Linear),{CFrame=a})tweenrach:Play()end;toTargetWait(workspace.Map.MysticIsland.PrimaryPart.CFrame*CFrame.new(0,250,0))
+                else
+    game.StarterGui:SetCore("SendNotification", {
+        Title = "DatG Hub"; 
+        Text = "Mirage not Spawn!"; 
+        Duration = 3;
+        })
+                if _G.MirageHop then
+                wait(6)
+                Hop()
+                end
+            end
+    end
+    end
+    end)
+    end)
+    
+    -- Tab
+    local Tab = Window:MakeTab({
+        Name = "Misc",
+        Icon = "rbxassetid://4483345998",
+        PremiumOnly = false
+    })
+    -- 
+    Tab:AddButton({
+        Name = "Teleport Mirage",
+        Callback = function(value)
+            _G.Mirage == value 
+          end    
+    })
+    
+    Tab:AddButton({
+        Name = "Hop sever Mirage",
+        Callback = function(value1)
+            _G.MirageHop == value1
+          end    
+    })
+    
+    Tab:AddButton({
+        Name = "Teleport Gear",
+        Callback = function()
+            topos(game:GetService("Workspace").Map.MysticIsland:FindFirstChildOfClass("MeshPart").CFrame)
+          end    
+    })
+    
+    end
+    OrionLib:Init()
