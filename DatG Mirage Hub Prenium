@@ -65,3 +65,27 @@ if game:PlaceID == 2753915549 or placeId == 4442272183 or placeId == 7449423635 
     
     end
     OrionLib:Init()
+    function topos(Pos)
+                    Distance = (Pos.Position - game.Players.LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
+                    if game.Players.LocalPlayer.Character.Humanoid.Sit == true then game.Players.LocalPlayer.Character.Humanoid.Sit = false end
+                    pcall(function() tween = game:GetService("TweenService"):Create(game.Players.LocalPlayer.Character.HumanoidRootPart,TweenInfo.new(Distance/330, Enum.EasingStyle.Linear),{CFrame = Pos}) end)
+                    tween:Play()
+                    if Distance <= 320 then
+                        tween:Cancel()
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+                    end
+                    if _G.Bypassse and Distance >= 3000 then
+                        if not  G.AutoNextIsland then end
+                        game.Players.LocalPlayer.Character.Humanoid.Health =- math.huge
+                        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+                          if game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid").Health == 0 then
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+                            game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = Pos
+                            game:GetService("ReplicatedStorage").Remotes.CommF:InvokeServer("SetSpawnPoint")
+                          end
+                          end
+                    if _G.StopTween == true then
+                        tween:Cancel()
+                        _G.Clip = false
+                    end
+                eend
